@@ -10,12 +10,7 @@ class HikingProjectService
 
 
   def get_hike_routes
-    hike_route_recs = connection.get("/data/get-trails?lat=#{@lat}&lon=#{@lon}&maxDistance=10&key=#{ENV['apiKey']}") #do |faraday|
-    #   faraday.params['lat'] = @lat
-    #   faraday.params['lon'] = @lon
-    #   faraday.params['maxDistance'] = dist #distance from lat/lon
-    #   faraday.params['key'] = ENV['apiKey'] #add api key
-    # end
+   hike_route_recs = connection.get("/data/get-trails?lat=#{@lat}&lon=#{@lon}&maxDistance=10&key=#{ENV['apiKey']}")
    response = JSON.parse(hike_route_recs.body, symbolize_names: true)
    response[:trails].shuffle.pop.to_json
   end
