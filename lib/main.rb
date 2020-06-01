@@ -1,6 +1,8 @@
 require 'sinatra'
 require 'faraday'
 require 'json'
+require_relative './services/hiking_project_service'
+require_relative './services/geocode_service'
 
 class Main < Sinatra::Base
   get '/' do
@@ -9,10 +11,10 @@ class Main < Sinatra::Base
 
   get '/recommend-hikes' do
     location = params[:location]
-    estimated_mile_pace = params[:estimated_mile_pace]
-    
+    geo_service = GeoCodeService.new
+    latlon = geo_service.location_info(location)[:geometry][:location]
+    service = HikingProjectService.new(latlon)
+    service.get_hike_routes
   end
-
-
 
 end
