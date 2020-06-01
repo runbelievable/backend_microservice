@@ -10,7 +10,6 @@ class Main < Sinatra::Base
   end
 
   get '/recommend-hikes' do
-    # require "pry"; binding.pry
     location = params[:location]
     geo_service = GeoCodeService.new
     latlon = geo_service.location_info(location)[:geometry][:location]
