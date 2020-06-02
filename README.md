@@ -37,3 +37,7 @@ GoogleKey: "YOUR GOOGLE GEOCODE API KEY"
 bundle exec rspec 
 ``
 7. You are Ready to Rock and Roll!!
+
+## Contributors and links to their Github Repositories:
+* Alex Gallant: https://github.com/agallant121?tab=repositories
+* Pierce Alworth: https://github.com/palworth?tab=repositories
