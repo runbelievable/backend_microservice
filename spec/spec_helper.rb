@@ -1,5 +1,6 @@
 require 'rack/test'
 require 'rspec'
+require 'simplecov'
 
 # VCR.configure do |config|
 #   config.ignore_localhost = true
@@ -9,10 +10,10 @@ require 'rspec'
 #   config.configure_rspec_metadata!
 # end
 
+SimpleCov.start 
 ENV['RACK_ENV'] = 'test'
 
 require File.expand_path '../../lib/main.rb', __FILE__
-
 module RSpecMixin
   include Rack::Test::Methods
   def app() Sinatra::Application end
