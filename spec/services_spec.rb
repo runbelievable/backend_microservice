@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe 'Spoonacular API Service', type: :request do
+RSpec.describe 'API Service', type: :request do
   def app
     Main
   end
